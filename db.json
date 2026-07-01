@@ -1,0 +1,236 @@
+{
+  "auth": [
+    {
+      "id": 1,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzdHVkZW50QGV4YW1wbGUuY29tIiwiaWF0IjoxNjczODk0ODAwLCJleHAiOjE2NzM5ODEyMDB9.xB5qZ9Kx0mN3pL8vQ2jW4rS6tU9yL1cD5fG7hJ2kM3n"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "student@example.com",
+      "password": "hashed_password_123",
+      "name": "John Doe",
+      "profileImage": "https://api.example.com/images/john.jpg",
+      "createdAt": "2024-01-15T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "email": "jane@example.com",
+      "password": "hashed_password_456",
+      "name": "Jane Smith",
+      "profileImage": null,
+      "createdAt": "2024-01-16T10:00:00Z"
+    },
+    {
+      "email": "adrijamethodist@gmail.com",
+      "password": "12345",
+      "name": "Adrija Ghosh",
+      "createdAt": "2026-07-01T06:00:36.595Z",
+      "id": 3
+    }
+   
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "React Native Basics",
+      "description": "Learn React Native from scratch",
+      "instructor": "John Instructor",
+      "thumbnail": "https://api.example.com/images/react.jpg",
+      "category": "Mobile Development",
+      "rating": 4.5,
+      "reviews": 245,
+      "price": 49.99,
+      "duration": "8 weeks",
+      "level": "Beginner",
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "JavaScript Advanced",
+      "description": "Master advanced JavaScript concepts",
+      "instructor": "Jane Expert",
+      "thumbnail": "https://api.example.com/images/js.jpg",
+      "category": "Web Development",
+      "rating": 4.8,
+      "reviews": 512,
+      "price": 59.99,
+      "duration": "10 weeks",
+      "level": "Intermediate",
+      "createdAt": "2024-01-02T10:00:00Z"
+    },
+    {
+      "id": 3,
+      "title": "Firebase Fundamentals",
+      "description": "Build real-time apps with Firebase",
+      "instructor": "Mike Developer",
+      "thumbnail": "https://api.example.com/images/firebase.jpg",
+      "category": "Backend",
+      "rating": 4.6,
+      "reviews": 189,
+      "price": 39.99,
+      "duration": "6 weeks",
+      "level": "Beginner",
+      "createdAt": "2024-01-03T10:00:00Z"
+    }
+  ],
+  "lessons": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "title": "Getting Started with React Native",
+      "description": "Introduction to RN setup and basics",
+      "videoUrl": "https://example.com/videos/lesson1.mp4",
+      "duration": 15,
+      "order": 1,
+      "content": "Learn how to set up React Native environment...",
+      "resources": [
+        {
+          "type": "pdf",
+          "title": "Setup Guide",
+          "url": "https://example.com/pdfs/setup.pdf"
+        }
+      ],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "courseId": 1,
+      "title": "Components and Props",
+      "description": "Understanding components in React Native",
+      "videoUrl": "https://example.com/videos/lesson2.mp4",
+      "duration": 22,
+      "order": 2,
+      "content": "Deep dive into React Native components...",
+      "resources": [
+        {
+          "type": "code",
+          "title": "Code Example",
+          "url": "https://example.com/code/lesson2.zip"
+        }
+      ],
+      "createdAt": "2024-01-01T11:00:00Z"
+    },
+    {
+      "id": 3,
+      "courseId": 1,
+      "title": "State and Hooks",
+      "description": "Master state management with hooks",
+      "videoUrl": "https://example.com/videos/lesson3.mp4",
+      "duration": 28,
+      "order": 3,
+      "content": "Learn useState, useEffect, and custom hooks...",
+      "resources": [],
+      "createdAt": "2024-01-01T12:00:00Z"
+    },
+    {
+      "id": 4,
+      "courseId": 2,
+      "title": "ES6 Features Overview",
+      "description": "Modern JavaScript features",
+      "videoUrl": "https://example.com/videos/lesson4.mp4",
+      "duration": 18,
+      "order": 1,
+      "content": "Explore arrow functions, destructuring, and more...",
+      "resources": [],
+      "createdAt": "2024-01-02T10:00:00Z"
+    },
+    {
+      "id": 5,
+      "courseId": 3,
+      "title": "Firebase Setup",
+      "description": "Initialize Firebase in your project",
+      "videoUrl": "https://example.com/videos/lesson5.mp4",
+      "duration": 12,
+      "order": 1,
+      "content": "Step-by-step Firebase initialization...",
+      "resources": [],
+      "createdAt": "2024-01-03T10:00:00Z"
+    }
+  ],
+  "progress": [
+    {
+      "id": 1,
+      "userId": 1,
+      "courseId": 1,
+      "lessonsCompleted": [
+        1,
+        2
+      ],
+      "currentLessonId": 3,
+      "completionPercentage": 66,
+      "lastAccessedAt": "2024-01-20T14:30:00Z",
+      "enrolledAt": "2024-01-15T10:00:00Z",
+      "status": "in-progress"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "courseId": 2,
+      "lessonsCompleted": [],
+      "currentLessonId": 4,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-01-18T09:00:00Z",
+      "enrolledAt": "2024-01-18T09:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "courseId": 3,
+      "lessonsCompleted": [
+        5
+      ],
+      "currentLessonId": null,
+      "completionPercentage": 100,
+      "lastAccessedAt": "2024-01-19T16:45:00Z",
+      "enrolledAt": "2024-01-10T10:00:00Z",
+      "status": "completed"
+    }
+  ],
+  "assignments": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "lessonId": 2,
+      "title": "Build a Counter App",
+      "description": "Create a simple counter using React Native",
+      "dueDate": "2024-02-15T23:59:00Z",
+      "maxScore": 100,
+      "instructions": "Follow the provided template...",
+      "createdAt": "2024-01-01T10:00:00Z"
+    }
+  ],
+  "submissions": [
+    {
+      "id": 1,
+      "assignmentId": 1,
+      "userId": 1,
+      "courseId": 1,
+      "submittedAt": "2024-02-10T15:30:00Z",
+      "attachmentUrl": "https://example.com/submissions/user1_assignment1.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "userId": 1,
+      "rating": 5,
+      "comment": "Excellent course, highly recommended!",
+      "createdAt": "2024-01-20T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "courseId": 1,
+      "userId": 2,
+      "rating": 4,
+      "comment": "Good content, but pacing could be better",
+      "createdAt": "2024-01-19T15:00:00Z"
+    }
+  ]
+}
