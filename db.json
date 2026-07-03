@@ -2,7 +2,7 @@
   "auth": [
     {
       "id": 1,
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzdHVkZW50QGV4YW1wbGUuY29tIiwiaWF0IjoxNjczODk0ODAwLCJleHAiOjE2NzM5ODEyMDB9.xB5qZ9Kx0mN3pL8vQ2jW4rS6tU9yL1cD5fG7hJ2kM3n"
+      "token": "sample.jwt.token"
     }
   ],
   "users": [
@@ -23,13 +23,52 @@
       "createdAt": "2024-01-16T10:00:00Z"
     },
     {
+      "id": 3,
       "email": "adrijamethodist@gmail.com",
       "password": "12345",
       "name": "Adrija Ghosh",
-      "createdAt": "2026-07-01T06:00:36.595Z",
-      "id": 3
+      "createdAt": "2026-07-01T06:00:36.595Z"
+    },
+    {
+      "id": 4,
+      "email": "alice@example.com",
+      "password": "pass123",
+      "name": "Alice",
+      "profileImage": null,
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 5,
+      "email": "bob@example.com",
+      "password": "pass123",
+      "name": "Bob",
+      "profileImage": null,
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 6,
+      "email": "charlie@example.com",
+      "password": "pass123",
+      "name": "Charlie",
+      "profileImage": null,
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 7,
+      "email": "david@example.com",
+      "password": "pass123",
+      "name": "David",
+      "profileImage": null,
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 8,
+      "email": "eva@example.com",
+      "password": "pass123",
+      "name": "Eva",
+      "profileImage": null,
+      "createdAt": "2024-02-01T10:00:00Z"
     }
-   
   ],
   "courses": [
     {
@@ -37,10 +76,10 @@
       "title": "React Native Basics",
       "description": "Learn React Native from scratch",
       "instructor": "John Instructor",
-      "thumbnail": "https://api.example.com/images/react.jpg",
-      "category": "Mobile Development",
-      "rating": 4.5,
-      "reviews": 245,
+      "thumbnail": "https://picsum.photos/400/200?random=1",
+      "category": "General",
+      "rating": 4.6,
+      "reviews": 109,
       "price": 49.99,
       "duration": "8 weeks",
       "level": "Beginner",
@@ -51,165 +90,1198 @@
       "title": "JavaScript Advanced",
       "description": "Master advanced JavaScript concepts",
       "instructor": "Jane Expert",
-      "thumbnail": "https://api.example.com/images/js.jpg",
-      "category": "Web Development",
-      "rating": 4.8,
-      "reviews": 512,
-      "price": 59.99,
-      "duration": "10 weeks",
-      "level": "Intermediate",
-      "createdAt": "2024-01-02T10:00:00Z"
+      "thumbnail": "https://picsum.photos/400/200?random=2",
+      "category": "General",
+      "rating": 4.6,
+      "reviews": 396,
+      "price": 49.99,
+      "duration": "8 weeks",
+      "level": "Beginner",
+      "createdAt": "2024-01-01T10:00:00Z"
     },
     {
       "id": 3,
       "title": "Firebase Fundamentals",
       "description": "Build real-time apps with Firebase",
       "instructor": "Mike Developer",
-      "thumbnail": "https://api.example.com/images/firebase.jpg",
-      "category": "Backend",
-      "rating": 4.6,
-      "reviews": 189,
-      "price": 39.99,
-      "duration": "6 weeks",
+      "thumbnail": "https://picsum.photos/400/200?random=3",
+      "category": "General",
+      "rating": 4.7,
+      "reviews": 253,
+      "price": 49.99,
+      "duration": "8 weeks",
       "level": "Beginner",
-      "createdAt": "2024-01-03T10:00:00Z"
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 4,
+      "title": "Python Programming",
+      "description": "Python from beginner to advanced",
+      "instructor": "Alex",
+      "thumbnail": "https://picsum.photos/400/200?random=4",
+      "category": "General",
+      "rating": 4.4,
+      "reviews": 251,
+      "price": 49.99,
+      "duration": "8 weeks",
+      "level": "Beginner",
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 5,
+      "title": "Data Structures",
+      "description": "DSA essentials",
+      "instructor": "Sarah",
+      "thumbnail": "https://picsum.photos/400/200?random=5",
+      "category": "General",
+      "rating": 4.5,
+      "reviews": 211,
+      "price": 49.99,
+      "duration": "8 weeks",
+      "level": "Beginner",
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 6,
+      "title": "Machine Learning",
+      "description": "Intro to ML",
+      "instructor": "Andrew",
+      "thumbnail": "https://picsum.photos/400/200?random=6",
+      "category": "General",
+      "rating": 4.7,
+      "reviews": 289,
+      "price": 49.99,
+      "duration": "8 weeks",
+      "level": "Beginner",
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 7,
+      "title": "Node.js API",
+      "description": "REST APIs",
+      "instructor": "Chris",
+      "thumbnail": "https://picsum.photos/400/200?random=7",
+      "category": "General",
+      "rating": 4.4,
+      "reviews": 352,
+      "price": 49.99,
+      "duration": "8 weeks",
+      "level": "Beginner",
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 8,
+      "title": "SQL Masterclass",
+      "description": "Learn SQL",
+      "instructor": "Emma",
+      "thumbnail": "https://picsum.photos/400/200?random=8",
+      "category": "General",
+      "rating": 4.8,
+      "reviews": 119,
+      "price": 49.99,
+      "duration": "8 weeks",
+      "level": "Beginner",
+      "createdAt": "2024-01-01T10:00:00Z"
     }
   ],
   "lessons": [
     {
       "id": 1,
       "courseId": 1,
-      "title": "Getting Started with React Native",
-      "description": "Introduction to RN setup and basics",
-      "videoUrl": "https://example.com/videos/lesson1.mp4",
-      "duration": 15,
+      "title": "Lesson 1 - React Native Basics",
+      "description": "Lesson 1 description",
+      "videoUrl": "https://example.com/1/1.mp4",
+      "duration": 11,
       "order": 1,
-      "content": "Learn how to set up React Native environment...",
-      "resources": [
-        {
-          "type": "pdf",
-          "title": "Setup Guide",
-          "url": "https://example.com/pdfs/setup.pdf"
-        }
-      ],
+      "content": "Sample content",
+      "resources": [],
       "createdAt": "2024-01-01T10:00:00Z"
     },
     {
       "id": 2,
       "courseId": 1,
-      "title": "Components and Props",
-      "description": "Understanding components in React Native",
-      "videoUrl": "https://example.com/videos/lesson2.mp4",
-      "duration": 22,
+      "title": "Lesson 2 - React Native Basics",
+      "description": "Lesson 2 description",
+      "videoUrl": "https://example.com/1/2.mp4",
+      "duration": 12,
       "order": 2,
-      "content": "Deep dive into React Native components...",
-      "resources": [
-        {
-          "type": "code",
-          "title": "Code Example",
-          "url": "https://example.com/code/lesson2.zip"
-        }
-      ],
-      "createdAt": "2024-01-01T11:00:00Z"
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
     },
     {
       "id": 3,
       "courseId": 1,
-      "title": "State and Hooks",
-      "description": "Master state management with hooks",
-      "videoUrl": "https://example.com/videos/lesson3.mp4",
-      "duration": 28,
+      "title": "Lesson 3 - React Native Basics",
+      "description": "Lesson 3 description",
+      "videoUrl": "https://example.com/1/3.mp4",
+      "duration": 13,
       "order": 3,
-      "content": "Learn useState, useEffect, and custom hooks...",
+      "content": "Sample content",
       "resources": [],
-      "createdAt": "2024-01-01T12:00:00Z"
+      "createdAt": "2024-01-01T10:00:00Z"
     },
     {
       "id": 4,
-      "courseId": 2,
-      "title": "ES6 Features Overview",
-      "description": "Modern JavaScript features",
-      "videoUrl": "https://example.com/videos/lesson4.mp4",
-      "duration": 18,
-      "order": 1,
-      "content": "Explore arrow functions, destructuring, and more...",
+      "courseId": 1,
+      "title": "Lesson 4 - React Native Basics",
+      "description": "Lesson 4 description",
+      "videoUrl": "https://example.com/1/4.mp4",
+      "duration": 14,
+      "order": 4,
+      "content": "Sample content",
       "resources": [],
-      "createdAt": "2024-01-02T10:00:00Z"
+      "createdAt": "2024-01-01T10:00:00Z"
     },
     {
       "id": 5,
-      "courseId": 3,
-      "title": "Firebase Setup",
-      "description": "Initialize Firebase in your project",
-      "videoUrl": "https://example.com/videos/lesson5.mp4",
-      "duration": 12,
-      "order": 1,
-      "content": "Step-by-step Firebase initialization...",
+      "courseId": 1,
+      "title": "Lesson 5 - React Native Basics",
+      "description": "Lesson 5 description",
+      "videoUrl": "https://example.com/1/5.mp4",
+      "duration": 15,
+      "order": 5,
+      "content": "Sample content",
       "resources": [],
-      "createdAt": "2024-01-03T10:00:00Z"
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 6,
+      "courseId": 1,
+      "title": "Lesson 6 - React Native Basics",
+      "description": "Lesson 6 description",
+      "videoUrl": "https://example.com/1/6.mp4",
+      "duration": 16,
+      "order": 6,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 7,
+      "courseId": 2,
+      "title": "Lesson 1 - JavaScript Advanced",
+      "description": "Lesson 1 description",
+      "videoUrl": "https://www.youtube.com/watch?v=U9JqlZiuU0E",
+      "duration": 11,
+      "order": 1,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 8,
+      "courseId": 2,
+      "title": "Lesson 2 - JavaScript Advanced",
+      "description": "Lesson 2 description",
+      "videoUrl": "https://example.com/2/2.mp4",
+      "duration": 12,
+      "order": 2,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 9,
+      "courseId": 2,
+      "title": "Lesson 3 - JavaScript Advanced",
+      "description": "Lesson 3 description",
+      "videoUrl": "https://example.com/2/3.mp4",
+      "duration": 13,
+      "order": 3,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 10,
+      "courseId": 2,
+      "title": "Lesson 4 - JavaScript Advanced",
+      "description": "Lesson 4 description",
+      "videoUrl": "https://example.com/2/4.mp4",
+      "duration": 14,
+      "order": 4,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 11,
+      "courseId": 2,
+      "title": "Lesson 5 - JavaScript Advanced",
+      "description": "Lesson 5 description",
+      "videoUrl": "https://example.com/2/5.mp4",
+      "duration": 15,
+      "order": 5,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 12,
+      "courseId": 2,
+      "title": "Lesson 6 - JavaScript Advanced",
+      "description": "Lesson 6 description",
+      "videoUrl": "https://example.com/2/6.mp4",
+      "duration": 16,
+      "order": 6,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 13,
+      "courseId": 3,
+      "title": "Lesson 1 - Firebase Fundamentals",
+      "description": "Lesson 1 description",
+      "videoUrl": "https://example.com/3/1.mp4",
+      "duration": 11,
+      "order": 1,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 14,
+      "courseId": 3,
+      "title": "Lesson 2 - Firebase Fundamentals",
+      "description": "Lesson 2 description",
+      "videoUrl": "https://example.com/3/2.mp4",
+      "duration": 12,
+      "order": 2,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 15,
+      "courseId": 3,
+      "title": "Lesson 3 - Firebase Fundamentals",
+      "description": "Lesson 3 description",
+      "videoUrl": "https://example.com/3/3.mp4",
+      "duration": 13,
+      "order": 3,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 16,
+      "courseId": 3,
+      "title": "Lesson 4 - Firebase Fundamentals",
+      "description": "Lesson 4 description",
+      "videoUrl": "https://example.com/3/4.mp4",
+      "duration": 14,
+      "order": 4,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 17,
+      "courseId": 3,
+      "title": "Lesson 5 - Firebase Fundamentals",
+      "description": "Lesson 5 description",
+      "videoUrl": "https://example.com/3/5.mp4",
+      "duration": 15,
+      "order": 5,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 18,
+      "courseId": 3,
+      "title": "Lesson 6 - Firebase Fundamentals",
+      "description": "Lesson 6 description",
+      "videoUrl": "https://example.com/3/6.mp4",
+      "duration": 16,
+      "order": 6,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 19,
+      "courseId": 4,
+      "title": "Lesson 1 - Python Programming",
+      "description": "Lesson 1 description",
+      "videoUrl": "https://example.com/4/1.mp4",
+      "duration": 11,
+      "order": 1,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 20,
+      "courseId": 4,
+      "title": "Lesson 2 - Python Programming",
+      "description": "Lesson 2 description",
+      "videoUrl": "https://example.com/4/2.mp4",
+      "duration": 12,
+      "order": 2,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 21,
+      "courseId": 4,
+      "title": "Lesson 3 - Python Programming",
+      "description": "Lesson 3 description",
+      "videoUrl": "https://example.com/4/3.mp4",
+      "duration": 13,
+      "order": 3,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 22,
+      "courseId": 4,
+      "title": "Lesson 4 - Python Programming",
+      "description": "Lesson 4 description",
+      "videoUrl": "https://example.com/4/4.mp4",
+      "duration": 14,
+      "order": 4,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 23,
+      "courseId": 4,
+      "title": "Lesson 5 - Python Programming",
+      "description": "Lesson 5 description",
+      "videoUrl": "https://example.com/4/5.mp4",
+      "duration": 15,
+      "order": 5,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 24,
+      "courseId": 4,
+      "title": "Lesson 6 - Python Programming",
+      "description": "Lesson 6 description",
+      "videoUrl": "https://example.com/4/6.mp4",
+      "duration": 16,
+      "order": 6,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 25,
+      "courseId": 5,
+      "title": "Lesson 1 - Data Structures",
+      "description": "Lesson 1 description",
+      "videoUrl": "https://example.com/5/1.mp4",
+      "duration": 11,
+      "order": 1,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 26,
+      "courseId": 5,
+      "title": "Lesson 2 - Data Structures",
+      "description": "Lesson 2 description",
+      "videoUrl": "https://example.com/5/2.mp4",
+      "duration": 12,
+      "order": 2,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 27,
+      "courseId": 5,
+      "title": "Lesson 3 - Data Structures",
+      "description": "Lesson 3 description",
+      "videoUrl": "https://example.com/5/3.mp4",
+      "duration": 13,
+      "order": 3,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 28,
+      "courseId": 5,
+      "title": "Lesson 4 - Data Structures",
+      "description": "Lesson 4 description",
+      "videoUrl": "https://example.com/5/4.mp4",
+      "duration": 14,
+      "order": 4,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 29,
+      "courseId": 5,
+      "title": "Lesson 5 - Data Structures",
+      "description": "Lesson 5 description",
+      "videoUrl": "https://example.com/5/5.mp4",
+      "duration": 15,
+      "order": 5,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 30,
+      "courseId": 5,
+      "title": "Lesson 6 - Data Structures",
+      "description": "Lesson 6 description",
+      "videoUrl": "https://example.com/5/6.mp4",
+      "duration": 16,
+      "order": 6,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 31,
+      "courseId": 6,
+      "title": "Lesson 1 - Machine Learning",
+      "description": "Lesson 1 description",
+      "videoUrl": "https://example.com/6/1.mp4",
+      "duration": 11,
+      "order": 1,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 32,
+      "courseId": 6,
+      "title": "Lesson 2 - Machine Learning",
+      "description": "Lesson 2 description",
+      "videoUrl": "https://example.com/6/2.mp4",
+      "duration": 12,
+      "order": 2,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 33,
+      "courseId": 6,
+      "title": "Lesson 3 - Machine Learning",
+      "description": "Lesson 3 description",
+      "videoUrl": "https://example.com/6/3.mp4",
+      "duration": 13,
+      "order": 3,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 34,
+      "courseId": 6,
+      "title": "Lesson 4 - Machine Learning",
+      "description": "Lesson 4 description",
+      "videoUrl": "https://example.com/6/4.mp4",
+      "duration": 14,
+      "order": 4,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 35,
+      "courseId": 6,
+      "title": "Lesson 5 - Machine Learning",
+      "description": "Lesson 5 description",
+      "videoUrl": "https://example.com/6/5.mp4",
+      "duration": 15,
+      "order": 5,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 36,
+      "courseId": 6,
+      "title": "Lesson 6 - Machine Learning",
+      "description": "Lesson 6 description",
+      "videoUrl": "https://example.com/6/6.mp4",
+      "duration": 16,
+      "order": 6,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 37,
+      "courseId": 7,
+      "title": "Lesson 1 - Node.js API",
+      "description": "Lesson 1 description",
+      "videoUrl": "https://example.com/7/1.mp4",
+      "duration": 11,
+      "order": 1,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 38,
+      "courseId": 7,
+      "title": "Lesson 2 - Node.js API",
+      "description": "Lesson 2 description",
+      "videoUrl": "https://example.com/7/2.mp4",
+      "duration": 12,
+      "order": 2,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 39,
+      "courseId": 7,
+      "title": "Lesson 3 - Node.js API",
+      "description": "Lesson 3 description",
+      "videoUrl": "https://example.com/7/3.mp4",
+      "duration": 13,
+      "order": 3,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 40,
+      "courseId": 7,
+      "title": "Lesson 4 - Node.js API",
+      "description": "Lesson 4 description",
+      "videoUrl": "https://example.com/7/4.mp4",
+      "duration": 14,
+      "order": 4,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 41,
+      "courseId": 7,
+      "title": "Lesson 5 - Node.js API",
+      "description": "Lesson 5 description",
+      "videoUrl": "https://example.com/7/5.mp4",
+      "duration": 15,
+      "order": 5,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 42,
+      "courseId": 7,
+      "title": "Lesson 6 - Node.js API",
+      "description": "Lesson 6 description",
+      "videoUrl": "https://example.com/7/6.mp4",
+      "duration": 16,
+      "order": 6,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 43,
+      "courseId": 8,
+      "title": "Lesson 1 - SQL Masterclass",
+      "description": "Lesson 1 description",
+      "videoUrl": "https://example.com/8/1.mp4",
+      "duration": 11,
+      "order": 1,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 44,
+      "courseId": 8,
+      "title": "Lesson 2 - SQL Masterclass",
+      "description": "Lesson 2 description",
+      "videoUrl": "https://example.com/8/2.mp4",
+      "duration": 12,
+      "order": 2,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 45,
+      "courseId": 8,
+      "title": "Lesson 3 - SQL Masterclass",
+      "description": "Lesson 3 description",
+      "videoUrl": "https://example.com/8/3.mp4",
+      "duration": 13,
+      "order": 3,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 46,
+      "courseId": 8,
+      "title": "Lesson 4 - SQL Masterclass",
+      "description": "Lesson 4 description",
+      "videoUrl": "https://example.com/8/4.mp4",
+      "duration": 14,
+      "order": 4,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 47,
+      "courseId": 8,
+      "title": "Lesson 5 - SQL Masterclass",
+      "description": "Lesson 5 description",
+      "videoUrl": "https://example.com/8/5.mp4",
+      "duration": 15,
+      "order": 5,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 48,
+      "courseId": 8,
+      "title": "Lesson 6 - SQL Masterclass",
+      "description": "Lesson 6 description",
+      "videoUrl": "https://example.com/8/6.mp4",
+      "duration": 16,
+      "order": 6,
+      "content": "Sample content",
+      "resources": [],
+      "createdAt": "2024-01-01T10:00:00Z"
     }
   ],
   "progress": [
     {
       "id": 1,
       "userId": 1,
-      "courseId": 1,
-      "lessonsCompleted": [
-        1,
-        2
-      ],
-      "currentLessonId": 3,
-      "completionPercentage": 66,
-      "lastAccessedAt": "2024-01-20T14:30:00Z",
-      "enrolledAt": "2024-01-15T10:00:00Z",
-      "status": "in-progress"
+      "courseId": 7,
+      "lessonsCompleted": [],
+      "currentLessonId": 37,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
     },
     {
       "id": 2,
       "userId": 1,
-      "courseId": 2,
+      "courseId": 1,
       "lessonsCompleted": [],
-      "currentLessonId": 4,
+      "currentLessonId": 1,
       "completionPercentage": 0,
-      "lastAccessedAt": "2024-01-18T09:00:00Z",
-      "enrolledAt": "2024-01-18T09:00:00Z",
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
       "status": "not-started"
     },
     {
       "id": 3,
       "userId": 2,
+      "courseId": 6,
+      "lessonsCompleted": [],
+      "currentLessonId": 31,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "courseId": 8,
+      "lessonsCompleted": [],
+      "currentLessonId": 43,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "id": 5,
+      "userId": 3,
+      "courseId": 7,
+      "lessonsCompleted": [
+        37,
+        38,
+        39
+      ],
+      "currentLessonId": 37,
+      "completionPercentage": 50,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "in-progress"
+    },
+    {
+      "id": 6,
+      "userId": 3,
       "courseId": 3,
       "lessonsCompleted": [
-        5
+        14,
+        13
+      ],
+      "currentLessonId": 13,
+      "completionPercentage": 33,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "in-progress"
+    },
+    {
+      "id": 7,
+      "userId": 4,
+      "courseId": 1,
+      "lessonsCompleted": [],
+      "currentLessonId": 1,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "id": 8,
+      "userId": 4,
+      "courseId": 6,
+      "lessonsCompleted": [],
+      "currentLessonId": 31,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "id": 9,
+      "userId": 5,
+      "courseId": 4,
+      "lessonsCompleted": [],
+      "currentLessonId": 19,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "id": 10,
+      "userId": 5,
+      "courseId": 6,
+      "lessonsCompleted": [],
+      "currentLessonId": 31,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "id": 11,
+      "userId": 6,
+      "courseId": 6,
+      "lessonsCompleted": [],
+      "currentLessonId": 31,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "id": 12,
+      "userId": 6,
+      "courseId": 8,
+      "lessonsCompleted": [],
+      "currentLessonId": 43,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "id": 13,
+      "userId": 7,
+      "courseId": 5,
+      "lessonsCompleted": [],
+      "currentLessonId": 25,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "id": 14,
+      "userId": 7,
+      "courseId": 8,
+      "lessonsCompleted": [],
+      "currentLessonId": 43,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "id": 15,
+      "userId": 8,
+      "courseId": 5,
+      "lessonsCompleted": [],
+      "currentLessonId": 25,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "id": 16,
+      "userId": 8,
+      "courseId": 7,
+      "lessonsCompleted": [],
+      "currentLessonId": 37,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2024-02-01T10:00:00Z",
+      "enrolledAt": "2024-01-20T10:00:00Z",
+      "status": "not-started"
+    },
+    {
+      "userId": 1,
+      "courseId": 2,
+      "lessonsCompleted": [
+        7,
+        11,
+        9,
+        8
       ],
       "currentLessonId": null,
-      "completionPercentage": 100,
-      "lastAccessedAt": "2024-01-19T16:45:00Z",
-      "enrolledAt": "2024-01-10T10:00:00Z",
-      "status": "completed"
+      "completionPercentage": 67,
+      "lastAccessedAt": "2026-07-02T15:40:02.323Z",
+      "enrolledAt": "2026-07-02T15:40:02.336Z",
+      "status": "in-progress",
+      "id": 17
+    },
+    {
+      "userId": 3,
+      "courseId": 2,
+      "lessonsCompleted": [
+        7,
+        8,
+        9
+      ],
+      "currentLessonId": null,
+      "completionPercentage": 50,
+      "lastAccessedAt": "2026-07-03T05:13:50.483Z",
+      "enrolledAt": "2026-07-03T05:13:50.490Z",
+      "status": "in-progress",
+      "id": 18
+    },
+    {
+      "userId": 3,
+      "courseId": 2,
+      "lessonsCompleted": [],
+      "currentLessonId": null,
+      "completionPercentage": 0,
+      "lastAccessedAt": "2026-07-03T05:14:05.543Z",
+      "enrolledAt": "2026-07-03T05:14:05.543Z",
+      "status": "not-started",
+      "id": 19
+    },
+    {
+      "userId": 1,
+      "courseId": 6,
+      "lessonsCompleted": [
+        31,
+        33,
+        34,
+        35,
+        32
+      ],
+      "currentLessonId": null,
+      "completionPercentage": 83,
+      "lastAccessedAt": "2026-07-03T05:17:13.172Z",
+      "enrolledAt": "2026-07-03T05:17:13.172Z",
+      "status": "in-progress",
+      "id": 20
+    },
+    {
+      "userId": 1,
+      "courseId": 8,
+      "lessonsCompleted": [
+        43
+      ],
+      "currentLessonId": null,
+      "completionPercentage": 17,
+      "lastAccessedAt": "2026-07-03T09:42:15.777Z",
+      "enrolledAt": "2026-07-03T09:42:15.779Z",
+      "status": "in-progress",
+      "id": 21
     }
   ],
   "assignments": [
     {
       "id": 1,
       "courseId": 1,
-      "lessonId": 2,
-      "title": "Build a Counter App",
-      "description": "Create a simple counter using React Native",
-      "dueDate": "2024-02-15T23:59:00Z",
+      "lessonId": 6,
+      "title": "React Native Basics Assignment",
+      "description": "Complete the task",
+      "dueDate": "2024-03-01T23:59:00Z",
       "maxScore": 100,
-      "instructions": "Follow the provided template...",
+      "instructions": "Submit project",
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "courseId": 2,
+      "lessonId": 12,
+      "title": "JavaScript Advanced Assignment",
+      "description": "Complete the task",
+      "dueDate": "2024-03-01T23:59:00Z",
+      "maxScore": 100,
+      "instructions": "Submit project",
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 3,
+      "courseId": 3,
+      "lessonId": 18,
+      "title": "Firebase Fundamentals Assignment",
+      "description": "Complete the task",
+      "dueDate": "2024-03-01T23:59:00Z",
+      "maxScore": 100,
+      "instructions": "Submit project",
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 4,
+      "courseId": 4,
+      "lessonId": 24,
+      "title": "Python Programming Assignment",
+      "description": "Complete the task",
+      "dueDate": "2024-03-01T23:59:00Z",
+      "maxScore": 100,
+      "instructions": "Submit project",
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 5,
+      "courseId": 5,
+      "lessonId": 30,
+      "title": "Data Structures Assignment",
+      "description": "Complete the task",
+      "dueDate": "2024-03-01T23:59:00Z",
+      "maxScore": 100,
+      "instructions": "Submit project",
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 6,
+      "courseId": 6,
+      "lessonId": 36,
+      "title": "Machine Learning Assignment",
+      "description": "Complete the task",
+      "dueDate": "2024-03-01T23:59:00Z",
+      "maxScore": 100,
+      "instructions": "Submit project",
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 7,
+      "courseId": 7,
+      "lessonId": 42,
+      "title": "Node.js API Assignment",
+      "description": "Complete the task",
+      "dueDate": "2024-03-01T23:59:00Z",
+      "maxScore": 100,
+      "instructions": "Submit project",
+      "createdAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 8,
+      "courseId": 8,
+      "lessonId": 48,
+      "title": "SQL Masterclass Assignment",
+      "description": "Complete the task",
+      "dueDate": "2024-03-01T23:59:00Z",
+      "maxScore": 100,
+      "instructions": "Submit project",
       "createdAt": "2024-01-01T10:00:00Z"
     }
   ],
   "submissions": [
     {
       "id": 1,
+      "assignmentId": 7,
+      "userId": 1,
+      "courseId": 7,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 2,
       "assignmentId": 1,
       "userId": 1,
       "courseId": 1,
-      "submittedAt": "2024-02-10T15:30:00Z",
-      "attachmentUrl": "https://example.com/submissions/user1_assignment1.zip",
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 3,
+      "assignmentId": 6,
+      "userId": 2,
+      "courseId": 6,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 4,
+      "assignmentId": 8,
+      "userId": 2,
+      "courseId": 8,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 5,
+      "assignmentId": 7,
+      "userId": 3,
+      "courseId": 7,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 6,
+      "assignmentId": 3,
+      "userId": 3,
+      "courseId": 3,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 7,
+      "assignmentId": 1,
+      "userId": 4,
+      "courseId": 1,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 8,
+      "assignmentId": 6,
+      "userId": 4,
+      "courseId": 6,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 9,
+      "assignmentId": 4,
+      "userId": 5,
+      "courseId": 4,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 10,
+      "assignmentId": 6,
+      "userId": 5,
+      "courseId": 6,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 11,
+      "assignmentId": 6,
+      "userId": 6,
+      "courseId": 6,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 12,
+      "assignmentId": 8,
+      "userId": 6,
+      "courseId": 8,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 13,
+      "assignmentId": 5,
+      "userId": 7,
+      "courseId": 5,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 14,
+      "assignmentId": 8,
+      "userId": 7,
+      "courseId": 8,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 15,
+      "assignmentId": 5,
+      "userId": 8,
+      "courseId": 5,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
+      "status": "submitted",
+      "score": null,
+      "feedback": null
+    },
+    {
+      "id": 16,
+      "assignmentId": 7,
+      "userId": 8,
+      "courseId": 7,
+      "submittedAt": "2024-02-10T10:00:00Z",
+      "attachmentUrl": "https://example.com/sub.zip",
       "status": "submitted",
       "score": null,
       "feedback": null
@@ -218,19 +1290,131 @@
   "reviews": [
     {
       "id": 1,
-      "courseId": 1,
+      "courseId": 7,
       "userId": 1,
       "rating": 5,
-      "comment": "Excellent course, highly recommended!",
-      "createdAt": "2024-01-20T10:00:00Z"
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
     },
     {
       "id": 2,
       "courseId": 1,
+      "userId": 1,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 3,
+      "courseId": 6,
       "userId": 2,
-      "rating": 4,
-      "comment": "Good content, but pacing could be better",
-      "createdAt": "2024-01-19T15:00:00Z"
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 4,
+      "courseId": 8,
+      "userId": 2,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 5,
+      "courseId": 7,
+      "userId": 3,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 6,
+      "courseId": 3,
+      "userId": 3,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 7,
+      "courseId": 1,
+      "userId": 4,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 8,
+      "courseId": 6,
+      "userId": 4,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 9,
+      "courseId": 4,
+      "userId": 5,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 10,
+      "courseId": 6,
+      "userId": 5,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 11,
+      "courseId": 6,
+      "userId": 6,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 12,
+      "courseId": 8,
+      "userId": 6,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 13,
+      "courseId": 5,
+      "userId": 7,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 14,
+      "courseId": 8,
+      "userId": 7,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 15,
+      "courseId": 5,
+      "userId": 8,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 16,
+      "courseId": 7,
+      "userId": 8,
+      "rating": 5,
+      "comment": "Great course!",
+      "createdAt": "2024-02-01T10:00:00Z"
     }
   ]
 }

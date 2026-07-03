@@ -6,14 +6,18 @@ import Splash from './screens/Auth/Splash';
 import Login from './screens/Auth/Login';
 import Signup from './screens/Auth/Signup';
 import Main from './screens/Main';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+
 import UserContextProvider from './hooks/UserContextProvider';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
   return (
-    <UserContextProvider>
+    <Provider store={store}>
+      <UserContextProvider>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name='Splash' component={Splash} />
           <Stack.Screen name='Login' component={Login} />
           <Stack.Screen name='SignUp' component={Signup} />
@@ -23,6 +27,9 @@ export default function App() {
       </NavigationContainer>
 
     </UserContextProvider>
+
+    </Provider>
+    
 
 
   );
