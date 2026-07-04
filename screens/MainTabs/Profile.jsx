@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { View, Text, Button } from 'react-native'
 import UserContext from '../../hooks/UserContext'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const Profile = ({ navigation }) => {
   const { setMail, setPw, setUid } = useContext(UserContext)
@@ -9,6 +10,8 @@ const Profile = ({ navigation }) => {
     setMail("")
     setPw("")
     setUid("")
+    AsyncStorage.removeItem('token')
+    AsyncStorage.removeItem('uid')
     navigation.getParent()?.navigate('Login')
   }
 

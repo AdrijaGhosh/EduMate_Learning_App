@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react'
-import { View, Text, FlatList, Pressable, Button } from 'react-native'
+import { View, Text, FlatList, Pressable, Button, StyleSheet } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchLessons } from '../../store/lessonsSlice'
 import { fetchProgress, updateProgress } from '../../store/progressSlice'
@@ -19,7 +19,11 @@ const LessonList = ({ route, navigation }) => {
   }, [dispatch])
 
   if (lessonsStatus === 'loading' || progressStatus === 'loading') {
-    return <Text>Loading...</Text>
+    return (
+      <View style={styles.centered}>
+        <Text style={styles.loadingText}>Loading...</Text>
+      </View>
+    )
   }
 
   // lessons that belong to this course
@@ -70,31 +74,58 @@ const LessonList = ({ route, navigation }) => {
   }
 
   return (
-    <View style={{ flex: 1 }}>
-       <Button title="Back" onPress={() => navigation.goBack()}/>
-      <Text>Lessons</Text>
+    <View style={styles.container}>
+      <View style={styles.headerRow}>
+        <Button title="Back" color="#1565C0" onPress={() => navigation.goBack()} />
+      </View>
 
-      <View>
-        <Text>Your Progress</Text>
-        <Text>Status: {myProgress ? myProgress.status : 'Not enrolled'}</Text>
-        <Text>Completed: {myProgress ? myProgress.completionPercentage : 0}%</Text>
+      <Text style={styles.heading}>Lessons</Text>
+
+      <View style={styles.progressCard}>
+        <Text style={styles.progressTitle}>Your Progress</Text>
+        <Text style={styles.progressText}>
+          Status: {myProgress ? myProgress.status : 'Not enrolled'}
+        </Text>
+        <Text style={styles.progressText}>
+          Completed: {myProgress ? myProgress.completionPercentage : 0}%
+        </Text>
       </View>
 
       <FlatList
         data={courseLessons}
         keyExtractor={(item) => item.id.toString()}
+        contentContainerStyle={styles.listContent}
         renderItem={({ item }) => {
           const isCompleted = completedLessonIds.includes(item.id)
 
           return (
-            <View>
-              <Text>{item.title}</Text>
-              <Text>{item.description}</Text>
-              <Text>Duration: {item.duration} min</Text>
-              <Pressable onPress={() => handleToggle(item.id)}>
-                <Text>{isCompleted ? '[x] Completed' : '[ ] Mark as completed'}</Text>
+            <View style={styles.lessonCard}>
+              <Text style={styles.lessonTitle}>{item.title}</Text>
+              <Text style={styles.lessonDescription}>{item.description}</Text>
+              <Text style={styles.lessonDuration}>Duration: {item.duration} min</Text>
+
+              <Pressable
+                onPress={() => handleToggle(item.id)}
+                style={[
+                  styles.toggleButton,
+                  isCompleted ? styles.toggleButtonCompleted : styles.toggleButtonIncomplete,
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.toggleButtonText,
+                    isCompleted ? styles.toggleButtonTextCompleted : styles.toggleButtonTextIncomplete,
+                  ]}
+                >
+                  {isCompleted ? '✓ Completed' : 'Mark as completed'}
+                </Text>
               </Pressable>
-              <Button title="Watch Lesson" onPress={() => navigation.navigate('Lesson', { id: item.id })} />
+
+              <Button
+                title="Watch Lesson"
+                color="#2E7D32"
+                onPress={() => navigation.navigate('Lesson', { id: item.id })}
+              />
             </View>
           )
         }}
@@ -102,5 +133,125 @@ const LessonList = ({ route, navigation }) => {
     </View>
   )
 }
+
+const COLORS = {
+  blue: '#1565C0',
+  blueLight: '#E3F2FD',
+  green: '#2E7D32',
+  greenLight: '#E8F5E9',
+  white: '#FFFFFF',
+  textDark: '#1B1B1B',
+  textMuted: '#546E7A',
+  border: '#CFD8DC',
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.white,
+  },
+  centered: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS.white,
+  },
+  loadingText: {
+    color: COLORS.blue,
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  headerRow: {
+    paddingHorizontal: 8,
+    paddingTop: 8,
+    backgroundColor: COLORS.white,
+  },
+  heading: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: COLORS.blue,
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    paddingBottom: 8,
+  },
+  progressCard: {
+    backgroundColor: COLORS.blueLight,
+    borderRadius: 12,
+    marginHorizontal: 16,
+    marginBottom: 12,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+  },
+  progressTitle: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: COLORS.blue,
+    marginBottom: 4,
+  },
+  progressText: {
+    fontSize: 14,
+    color: COLORS.textDark,
+  },
+  listContent: {
+    paddingHorizontal: 16,
+    paddingBottom: 24,
+  },
+  lessonCard: {
+    backgroundColor: COLORS.white,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    padding: 14,
+    marginBottom: 12,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  lessonTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: COLORS.blue,
+    marginBottom: 4,
+  },
+  lessonDescription: {
+    fontSize: 14,
+    color: COLORS.textDark,
+    marginBottom: 4,
+  },
+  lessonDuration: {
+    fontSize: 12,
+    color: COLORS.textMuted,
+    marginBottom: 10,
+  },
+  toggleButton: {
+    borderRadius: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    marginBottom: 10,
+    borderWidth: 1,
+  },
+  toggleButtonIncomplete: {
+    backgroundColor: COLORS.white,
+    borderColor: COLORS.blue,
+  },
+  toggleButtonCompleted: {
+    backgroundColor: COLORS.greenLight,
+    borderColor: COLORS.green,
+  },
+  toggleButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+  toggleButtonTextIncomplete: {
+    color: COLORS.blue,
+  },
+  toggleButtonTextCompleted: {
+    color: COLORS.green,
+  },
+})
 
 export default LessonList

@@ -1,13 +1,28 @@
-import React from 'react'
-import { View ,Text, Pressable} from 'react-native'
+import React, { useEffect, useContext } from 'react'
+import { View, Text } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import UserContext from '../../hooks/UserContext'
 
-const Splash = ({navigation}) => {
+const Splash = ({ navigation }) => {
+  const { setUid } = useContext(UserContext)
+
+  useEffect(() => {
+    AsyncStorage.getItem('token').then((token) => {
+      AsyncStorage.getItem('uid').then((uid) => {
+        if (token && uid) {
+          setUid(Number(uid))
+          navigation.replace('Main')
+        } else {
+          navigation.replace('Login')
+        }
+      })
+    })
+  }, [])
+
   return (
-    <View><Text>Splash </Text>
-    <Pressable onPress={()=>navigation.navigate('Login')}><Text>GO TO LOGIN</Text></Pressable>
-    <Pressable onPress={()=>navigation.navigate('SignUp')}><Text>GO TO SIGNUP</Text></Pressable>
+    <View>
+      <Text>Loading...</Text>
     </View>
-    
   )
 }
 

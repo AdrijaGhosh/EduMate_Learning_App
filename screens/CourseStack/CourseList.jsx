@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react'
-import { View, Text, FlatList, Image, Button } from 'react-native'
+import { View, Text, FlatList, Image, Button, StyleSheet } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCourses } from '../../store/coursesSlice'
 import { fetchProgress } from '../../store/progressSlice'
@@ -36,38 +36,40 @@ const CourseList = ({ navigation }) => {
   const availableCourses = courses.filter((c) => !enrolledCourseIds.includes(c.id))
 
   return (
-    <View style={{ flex: 1 }}>
-      <Text>Our Courses</Text>
+    <View style={s.box}>
+      <Text style={s.head}>Our Courses</Text>
       <FlatList
         data={availableCourses}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <View>
-            <Image source={{ uri: item.thumbnail }} style={{ width: 200, height: 100 }} />
-            <Text>{item.title}</Text>
-            <Text>{item.description}</Text>
-            <Text>{item.instructor}</Text>
+          <View style={s.card}>
+            <Image source={{ uri: item.thumbnail }} style={s.img} />
+            <Text style={s.title}>{item.title}</Text>
+            <Text style={s.desc}>{item.description}</Text>
+            <Text style={s.sub}>{item.instructor}</Text>
             <Button
               title="Know More"
+              color="#1d4ed8"
               onPress={() => navigation.navigate('CourseDetails', { courseId: item.id })}
             />
           </View>
         )}
       />
 
-      <Text>Your Enrolled Courses</Text>
+      <Text style={s.head}>Your Enrolled Courses</Text>
       <FlatList
         data={enrolledCourses}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <View>
-            <Image source={{ uri: item.thumbnail }} style={{ width: 200, height: 100 }} />
-            <Text>{item.title}</Text>
-            <Text>{item.progress.completionPercentage}% complete</Text>
-            <Text>Status: {item.progress.status}</Text>
+          <View style={s.card}>
+            <Image source={{ uri: item.thumbnail }} style={s.img} />
+            <Text style={s.title}>{item.title}</Text>
+            <Text style={s.sub}>{item.progress.completionPercentage}% complete</Text>
+            <Text style={s.sub}>Status: {item.progress.status}</Text>
             <Button
               title="Continue"
-              onPress={() => navigation.navigate('LessonList',{ courseId: item.id })}
+              color="#16a34a"
+              onPress={() => navigation.navigate('LessonList', { courseId: item.id })}
             />
           </View>
         )}
@@ -77,3 +79,45 @@ const CourseList = ({ navigation }) => {
 }
 
 export default CourseList
+
+const s = StyleSheet.create({
+  box: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+    padding: 10,
+  },
+  head: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#1d4ed8',
+    marginVertical: 10,
+  },
+  card: {
+    backgroundColor: '#f8fafc',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#e2e8f0',
+    padding: 10,
+    marginBottom: 10,
+  },
+  img: {
+    width: '100%',
+    height: 120,
+    borderRadius: 8,
+    marginBottom: 8,
+  },
+  title: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: '#0f172a',
+  },
+  desc: {
+    fontSize: 13,
+    color: '#475569',
+  },
+  sub: {
+    fontSize: 12,
+    color: '#16a34a',
+    marginBottom: 6,
+  },
+})

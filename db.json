@@ -812,15 +812,18 @@
       "userId": 3,
       "courseId": 7,
       "lessonsCompleted": [
-        37,
         38,
-        39
+        39,
+        40,
+        41,
+        42,
+        37
       ],
       "currentLessonId": 37,
-      "completionPercentage": 50,
+      "completionPercentage": 100,
       "lastAccessedAt": "2024-02-01T10:00:00Z",
       "enrolledAt": "2024-01-20T10:00:00Z",
-      "status": "in-progress"
+      "status": "completed"
     },
     {
       "id": 6,
@@ -966,12 +969,11 @@
       "userId": 3,
       "courseId": 2,
       "lessonsCompleted": [
-        7,
         8,
-        9
+        7
       ],
       "currentLessonId": null,
-      "completionPercentage": 50,
+      "completionPercentage": 33,
       "lastAccessedAt": "2026-07-03T05:13:50.483Z",
       "enrolledAt": "2026-07-03T05:13:50.490Z",
       "status": "in-progress",

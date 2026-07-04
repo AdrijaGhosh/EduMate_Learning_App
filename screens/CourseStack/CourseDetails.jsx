@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { View, Text, Image, Button } from 'react-native'
+import { View, Text, Image, Button, StyleSheet } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { addProgress } from '../../store/progressSlice'
 import UserContext from '../../hooks/UserContext'
@@ -32,19 +32,20 @@ const CourseDetails = ({ route, navigation }) => {
   }
 
   return (
-    <View>
+    <View style={s.box}>
       <Button title="Back" onPress={() => navigation.goBack()} />
-      <Image source={{ uri: course.thumbnail }} style={{ width: 200, height: 100 }} />
-      <Text>{course.title}</Text>
-      <Text>{course.description}</Text>
-      <Text>Instructor: {course.instructor}</Text>
-      <Text>Category: {course.category}</Text>
-      <Text>Level: {course.level}</Text>
-      <Text>Duration: {course.duration}</Text>
-      <Text>Rating: {course.rating} ({course.reviews} reviews)</Text>
-      <Text>Price: ${course.price}</Text>
+      <Image source={{ uri: course.thumbnail }} style={s.img} />
+      <Text style={s.title}>{course.title}</Text>
+      <Text style={s.desc}>{course.description}</Text>
+      <Text style={s.sub}>Instructor: {course.instructor}</Text>
+      <Text style={s.sub}>Category: {course.category}</Text>
+      <Text style={s.sub}>Level: {course.level}</Text>
+      <Text style={s.sub}>Duration: {course.duration}</Text>
+      <Text style={s.sub}>Rating: {course.rating} ({course.reviews} reviews)</Text>
+      <Text style={s.price}>Price: ${course.price}</Text>
       <Button
         title={enrolling ? 'Enrolling...' : 'Enroll Now'}
+        color="#16a34a"
         onPress={handleEnroll}
         disabled={enrolling}
       />
@@ -53,3 +54,40 @@ const CourseDetails = ({ route, navigation }) => {
 }
 
 export default CourseDetails
+
+const s = StyleSheet.create({
+  box: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+    padding: 14,
+  },
+  img: {
+    width: '100%',
+    height: 180,
+    borderRadius: 10,
+    marginVertical: 12,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#0f172a',
+    marginBottom: 6,
+  },
+  desc: {
+    fontSize: 14,
+    color: '#475569',
+    marginBottom: 10,
+  },
+  sub: {
+    fontSize: 13,
+    color: '#1d4ed8',
+    marginBottom: 4,
+  },
+  price: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#16a34a',
+    marginTop: 8,
+    marginBottom: 14,
+  },
+})
