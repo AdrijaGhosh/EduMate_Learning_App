@@ -8,6 +8,7 @@ const Login = ({ navigation }) => {
   const { mail, setMail } = useContext(UserContext)
   const { pw, setPw } = useContext(UserContext)
   const { setUid } = useContext(UserContext)
+  const { setName, setProfileImage, setCreatedAt } = useContext(UserContext)
   const [valid, setValid] = useState(true)
   const [emailError, setEmailError] = useState(false)
 
@@ -35,6 +36,9 @@ const Login = ({ navigation }) => {
       if (foundUser) {
         setValid(true)
         setUid(foundUser.id)
+        setName(foundUser.name)
+        setProfileImage(foundUser.profileImage || null)
+        setCreatedAt(foundUser.createdAt)
 
         axios.get("http://localhost:3000/auth").then((authResp) => {
           const token = authResp.data[0].token

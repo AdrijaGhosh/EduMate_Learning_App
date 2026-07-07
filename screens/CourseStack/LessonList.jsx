@@ -26,11 +26,15 @@ const LessonList = ({ route, navigation }) => {
     )
   }
 
-  // lessons that belong to this course
-  const courseLessons = lessons.filter((l) => l.courseId === courseId)
+  // lessons that belong to this course - compare as strings, since
+  // courseId may come through as a number or string depending on source
+  const courseLessons = lessons.filter((l) => String(l.courseId) === String(courseId))
 
-  // this user's progress record for this course
-  const myProgress = progress.find((p) => p.userId === uid && p.courseId === courseId)
+  // this user's progress record for this course - compare as strings,
+  // since userId/courseId may be numeric or auto-generated alphanumeric IDs
+  const myProgress = progress.find(
+    (p) => String(p.userId) === String(uid) && String(p.courseId) === String(courseId)
+  )
 
   // plain array of completed lesson ids (empty if no progress record yet)
   const completedLessonIds = myProgress ? myProgress.lessonsCompleted : []

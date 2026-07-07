@@ -12,7 +12,7 @@ const CourseDetails = ({ route, navigation }) => {
 
   const { list: courses } = useSelector((state) => state.courses)
 
-  const course = courses.find((c) => c.id === courseId)
+  const course = courses.find((c) => String(c.id) === String(courseId))
 
   if (!course) {
     return <Text>Course not found</Text>
@@ -21,7 +21,11 @@ const CourseDetails = ({ route, navigation }) => {
   async function handleEnroll() {
     setEnrolling(true)
     try {
-      await dispatch(addProgress({ userId: Number(uid), courseId: course.id })).unwrap()
+      // Keep IDs as strings - don't cast with Number(), since generated
+      // user/course IDs (e.g. from signup) are not guaranteed numeric.
+      await dispatch(
+        addProgress({ userId: String(uid), courseId: String(course.id) })
+      ).unwrap()
       navigation.navigate('LessonList', { courseId: course.id })
     } catch (err) {
       console.log('Enroll failed:', err)
