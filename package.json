@@ -10,11 +10,11 @@
     "test": "jest"
   },
   "jest": {
-  "preset": "jest-expo",
-  "setupFilesAfterEnv": [
-    "./setupTests.js"
-  ]
-},
+    "preset": "jest-expo",
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ]
+  },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^3.1.1",
     "@react-navigation/bottom-tabs": "^7.18.3",
@@ -27,8 +27,10 @@
     "expo-async-storage": "^0.0.0",
     "expo-status-bar": "~3.0.9",
     "json-server": "^1.0.0-beta.15",
+    "leaflet": "^1.9.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-leaflet": "^5.0.0",
     "react-native": "0.81.5",
     "react-native-gesture-handler": "~2.28.0",
     "react-native-reanimated": "~4.1.1",
