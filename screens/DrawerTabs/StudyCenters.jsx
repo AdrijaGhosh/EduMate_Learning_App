@@ -1,59 +1,27 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Platform,
-} from "react-native";
+import { View, Text, StyleSheet, Platform } from "react-native";
 
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-
-
 const StudyCenters = () => {
-
-
   if (Platform.OS === "web") {
-
     return <WebMap />;
-
   }
 
-
-
   return (
-
     <View style={styles.container}>
+      <Text style={styles.heading}>Nearby Study Centers</Text>
 
-      <Text style={styles.heading}>
-        Nearby Study Centers
-      </Text>
-
-
-      <Text>
-        Map available on web version.
-      </Text>
-
-
+      <Text>Map available on web version.</Text>
     </View>
-
   );
-
 };
-
-
-
-
-
 
 // Custom Marker Design
 
 const createStudyIcon = (emoji) => {
-
-
   return L.divIcon({
-
     className: "custom-marker",
 
     html: `
@@ -81,358 +49,169 @@ const createStudyIcon = (emoji) => {
 
     `,
 
+    iconSize: [45, 45],
 
-    iconSize:[45,45],
+    iconAnchor: [22, 45],
 
-    iconAnchor:[22,45],
-
-    popupAnchor:[0,-40]
-
-
+    popupAnchor: [0, -40],
   });
-
-
 };
 
-
-
-
-
-
-
-function WebMap(){
-
-
+function WebMap() {
   const ReactLeaflet = require("react-leaflet");
 
+  const { MapContainer, TileLayer, Marker, Popup } = ReactLeaflet;
 
-  const {
-    MapContainer,
-    TileLayer,
-    Marker,
-    Popup
-  } = ReactLeaflet;
-
-
-
-
-  const centers=[
-
-
+  const centers = [
     {
+      id: 1,
 
-      id:1,
+      name: "EduMate Study Hub",
 
-      name:"EduMate Study Hub",
+      description: "Silent study rooms + Digital Library",
 
-      description:"Silent study rooms + Digital Library",
+      emoji: "📚",
 
-      emoji:"📚",
+      lat: 22.5726,
 
-      lat:22.5726,
-
-      lng:88.3639
-
+      lng: 88.3639,
     },
 
-
-
     {
+      id: 2,
 
-      id:2,
+      name: "Knowledge Point Library",
 
-      name:"Knowledge Point Library",
+      description: "24/7 competitive exam preparation",
 
-      description:"24/7 competitive exam preparation",
+      emoji: "🎓",
 
-      emoji:"🎓",
+      lat: 22.574,
 
-      lat:22.5740,
-
-      lng:88.3655
-
+      lng: 88.3655,
     },
 
-
-
     {
+      id: 3,
 
-      id:3,
+      name: "Bright Future Academy",
 
-      name:"Bright Future Academy",
+      description: "Coding and technical courses",
 
-      description:"Coding and technical courses",
+      emoji: "💻",
 
-      emoji:"💻",
+      lat: 22.5705,
 
-      lat:22.5705,
-
-      lng:88.3615
-
-    }
-
-
+      lng: 88.3615,
+    },
   ];
 
-
-
-
-
   return (
-
     <View style={styles.container}>
-
-
-      <Text style={styles.heading}>
-        Nearby Study Centers
-      </Text>
-
-
-
+      <Text style={styles.heading}>Nearby Study Centers</Text>
 
       <div
         style={{
-          height:"80%",
-          width:"100%",
-          borderRadius:"15px",
-          overflow:"hidden"
+          height: "80%",
+          width: "100%",
+          borderRadius: "15px",
+          overflow: "hidden",
         }}
       >
-
-
-
         <MapContainer
-
-
-          center={[
-            22.5726,
-            88.3639
-          ]}
-
-
+          center={[22.5726, 88.3639]}
           zoom={15}
-
-
           style={{
+            height: "100%",
 
-            height:"100%",
-
-            width:"100%"
-
+            width: "100%",
           }}
-
-
         >
+          <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
+          {centers.map((center) => (
+            <Marker
+              key={center.id}
+              position={[center.lat, center.lng]}
+              icon={createStudyIcon(center.emoji)}
+            >
+              <Popup>
+                <div
+                  style={{
+                    padding: "10px",
 
-
-
-          <TileLayer
-
-            url=
-            "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-
-          />
-
-
-
-
-
-          {
-            centers.map((center)=>(
-
-
-              <Marker
-
-
-                key={center.id}
-
-
-                position={[
-
-                  center.lat,
-
-                  center.lng
-
-                ]}
-
-
-                icon={
-                  createStudyIcon(center.emoji)
-                }
-
-
-              >
-
-
-
-                <Popup>
-
-
-                  <div
-
+                    minWidth: "180px",
+                  }}
+                >
+                  <h3
                     style={{
+                      margin: "0",
 
-                      padding:"10px",
+                      color: "#2563eb",
 
-                      minWidth:"180px"
-
+                      fontSize: "16px",
                     }}
-
                   >
+                    {center.name}
+                  </h3>
 
+                  <p
+                    style={{
+                      color: "#475569",
 
-                    <h3
+                      marginTop: "8px",
+                    }}
+                  >
+                    {center.description}
+                  </p>
 
-                      style={{
+                  <button
+                    style={{
+                      background: "#2563eb",
 
-                        margin:"0",
+                      color: "white",
 
-                        color:"#2563eb",
+                      border: "none",
 
-                        fontSize:"16px"
+                      padding: "8px 15px",
 
-                      }}
+                      borderRadius: "8px",
 
-                    >
-
-                      {center.name}
-
-                    </h3>
-
-
-
-
-                    <p
-
-                      style={{
-
-                        color:"#475569",
-
-                        marginTop:"8px"
-
-                      }}
-
-                    >
-
-                      {center.description}
-
-                    </p>
-
-
-
-
-                    <button
-
-                      style={{
-
-                        background:"#2563eb",
-
-                        color:"white",
-
-                        border:"none",
-
-                        padding:"8px 15px",
-
-                        borderRadius:"8px",
-
-                        cursor:"pointer"
-
-                      }}
-
-                    >
-
-                      View Centre
-
-                    </button>
-
-
-
-                  </div>
-
-
-
-                </Popup>
-
-
-
-              </Marker>
-
-
-
-            ))
-          }
-
-
-
-
-
+                      cursor: "pointer",
+                    }}
+                  >
+                    View Centre
+                  </button>
+                </div>
+              </Popup>
+            </Marker>
+          ))}
         </MapContainer>
-
-
-
       </div>
-
-
-
     </View>
-
   );
-
-
 }
-
-
-
-
-
 
 export default StudyCenters;
 
-
-
-
-
-
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
 
+    padding: 15,
 
-container:{
+    backgroundColor: "#f8fafc",
+  },
 
+  heading: {
+    fontSize: 24,
 
-flex:1,
+    fontWeight: "bold",
 
+    color: "#2563eb",
 
-padding:15,
+    textAlign: "center",
 
-
-backgroundColor:"#f8fafc"
-
-
-},
-
-
-
-
-heading:{
-
-
-fontSize:24,
-
-
-fontWeight:"bold",
-
-
-color:"#2563eb",
-
-
-textAlign:"center",
-
-
-marginBottom:15
-
-
-}
-
-
+    marginBottom: 15,
+  },
 });

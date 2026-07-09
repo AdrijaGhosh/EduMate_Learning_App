@@ -1,24 +1,27 @@
-import React from 'react'
-import { View, Text, Button, Platform } from 'react-native'
-import { useSelector } from 'react-redux'
+import React from "react";
+import { View, Text, Button, Platform } from "react-native";
+import { useSelector } from "react-redux";
 
 const Lesson = ({ route, navigation }) => {
-  const { id } = route.params
-  const { list: lessons } = useSelector((state) => state.lessons)
+  const { id } = route.params;
+  const { list: lessons } = useSelector((state) => state.lessons);
 
-  const lesson = lessons.find((l) => l.id === id)
+  const lesson = lessons.find((l) => l.id === id);
 
   if (!lesson) {
-    return <Text>Lesson not found</Text>
+    return <Text>Lesson not found</Text>;
   }
 
   // convert a normal YouTube watch URL into an embeddable URL
   function getEmbedUrl(url) {
-    const videoId = url.split('v=')[1]
-    return `https://www.youtube.com/embed/${videoId}`
-  }
+  const match = url.match(/[?&]v=([^&]+)/);
 
-  const embedUrl = getEmbedUrl(lesson.videoUrl)
+  if (!match) return "";
+
+  return `https://www.youtube.com/embed/${match[1]}`;
+}
+
+  const embedUrl = getEmbedUrl(lesson.videoUrl);
 
   return (
     <View style={{ flex: 1 }}>
@@ -26,10 +29,10 @@ const Lesson = ({ route, navigation }) => {
       <Text>{lesson.title}</Text>
 
       <View style={{ height: 220 }}>
-        {Platform.OS === 'web' ? (
+        {Platform.OS === "web" ? (
           <iframe
             src={embedUrl}
-            style={{ width: '100%', height: '100%', border: 'none' }}
+            style={{ width: "100%", height: "100%", border: "none" }}
             allow="autoplay; encrypted-media"
             allowFullScreen
           />
@@ -41,13 +44,13 @@ const Lesson = ({ route, navigation }) => {
       <Text>{lesson.description}</Text>
       <Text>{lesson.content}</Text>
     </View>
-  )
-}
+  );
+};
 
 // only import/require WebView when actually on native, so web bundling doesn't choke on it
 function WebViewComponent({ uri }) {
-  const { WebView } = require('react-native-webview')
-  return <WebView source={{ uri }} />
+  const { WebView } = require("react-native-webview");
+  return <WebView source={{ uri }} />;
 }
 
-export default Lesson
+export default Lesson;

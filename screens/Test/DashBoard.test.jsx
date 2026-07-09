@@ -1,276 +1,132 @@
 import React from "react";
 
-import {
-  render,
-} from "@testing-library/react-native";
+import { render } from "@testing-library/react-native";
 
 import Dashboard from "../MainTabs/Dashboard";
 
 import UserContext from "../../hooks/UserContext";
 
-
 // Mock react-redux
 
 jest.mock("react-redux", () => ({
-
   useDispatch: () => jest.fn(),
 
   useSelector: jest.fn(),
-
 }));
 
-
 import { useSelector } from "react-redux";
-
-
 
 // Mock redux actions
 
 jest.mock("../../store/coursesSlice", () => ({
   fetchCourses: jest.fn(() => ({
-    type: "courses/fetchCourses"
-  }))
+    type: "courses/fetchCourses",
+  })),
 }));
-
 
 jest.mock("../../store/progressSlice", () => ({
   fetchProgress: jest.fn(() => ({
-    type: "progress/fetchProgress"
-  }))
+    type: "progress/fetchProgress",
+  })),
 }));
 
-
-
 describe("Dashboard Screen Tests", () => {
-
-
   const mockContext = {
-    uid: "user123"
+    uid: "user123",
   };
 
-
-
-  beforeEach(()=>{
-
+  beforeEach(() => {
     jest.clearAllMocks();
-
   });
 
-
-
-  test("shows loading screen",()=>{
-
-
-    useSelector.mockImplementation((callback)=>{
-
-
+  test("shows loading screen", () => {
+    useSelector.mockImplementation((callback) => {
       return callback({
-
-        courses:{
-          list:[],
-          status:"loading"
+        courses: {
+          list: [],
+          status: "loading",
         },
 
-
-        progress:{
-          list:[],
-          status:"idle"
-        }
-
-
+        progress: {
+          list: [],
+          status: "idle",
+        },
       });
-
-
     });
 
-
-
-    const {getByText}=render(
-
-
+    const { getByText } = render(
       <UserContext.Provider value={mockContext}>
-
-
-        <Dashboard/>
-
-
-      </UserContext.Provider>
-
-
+        <Dashboard />
+      </UserContext.Provider>,
     );
 
-
-
-    expect(
-      getByText("Loading Dashboard...")
-    ).toBeTruthy();
-
-
+    expect(getByText("Loading Dashboard...")).toBeTruthy();
   });
 
-
-
-
-
-
-
-  test("renders enrolled courses",()=>{
-
-
-    useSelector.mockImplementation((callback)=>{
-
-
+  test("renders enrolled courses", () => {
+    useSelector.mockImplementation((callback) => {
       return callback({
-
-
-        courses:{
-
-
-          list:[
-
+        courses: {
+          list: [
             {
-              id:"course1",
-              title:"React Native Basics",
-              thumbnail:"https://test.com/image.png"
-            }
-
+              id: "course1",
+              title: "React Native Basics",
+              thumbnail: "https://test.com/image.png",
+            },
           ],
 
-
-          status:"success"
-
-
+          status: "success",
         },
 
-
-
-        progress:{
-
-
-          list:[
-
+        progress: {
+          list: [
             {
-              userId:"user123",
-              courseId:"course1",
-              status:"completed",
-              completionPercentage:100
-            }
-
+              userId: "user123",
+              courseId: "course1",
+              status: "completed",
+              completionPercentage: 100,
+            },
           ],
 
-
-          status:"success"
-
-
-        }
-
-
+          status: "success",
+        },
       });
-
-
     });
 
-
-
-
-
-    const {getByText}=render(
-
-
+    const { getByText } = render(
       <UserContext.Provider value={mockContext}>
-
-
-        <Dashboard/>
-
-
-      </UserContext.Provider>
-
-
+        <Dashboard />
+      </UserContext.Provider>,
     );
 
+    expect(getByText("React Native Basics")).toBeTruthy();
 
+    expect(getByText("100% Completed")).toBeTruthy();
 
-    expect(
-      getByText("React Native Basics")
-    ).toBeTruthy();
-
-
-
-    expect(
-      getByText("100% Completed")
-    ).toBeTruthy();
-
-
-
-    expect(
-      getByText("Completed")
-    ).toBeTruthy();
-
-
-
+    expect(getByText("Completed")).toBeTruthy();
   });
 
-
-
-
-
-
-
-  test("shows empty courses message",()=>{
-
-
-    useSelector.mockImplementation((callback)=>{
-
-
+  test("shows empty courses message", () => {
+    useSelector.mockImplementation((callback) => {
       return callback({
-
-
-        courses:{
-          list:[],
-          status:"success"
+        courses: {
+          list: [],
+          status: "success",
         },
 
-
-        progress:{
-          list:[],
-          status:"success"
-        }
-
-
+        progress: {
+          list: [],
+          status: "success",
+        },
       });
-
-
     });
 
-
-
-    const {getByText}=render(
-
-
+    const { getByText } = render(
       <UserContext.Provider value={mockContext}>
-
-
-        <Dashboard/>
-
-
-      </UserContext.Provider>
-
-
+        <Dashboard />
+      </UserContext.Provider>,
     );
 
-
-
-    expect(
-
-      getByText(
-        "You haven't enrolled in any course yet."
-      )
-
-    ).toBeTruthy();
-
-
+    expect(getByText("You haven't enrolled in any course yet.")).toBeTruthy();
   });
-
-
-
 });

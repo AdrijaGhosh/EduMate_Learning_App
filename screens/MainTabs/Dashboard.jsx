@@ -90,8 +90,6 @@ const Dashboard = () => {
     <View style={styles.container}>
       <Text style={styles.heading}>📊 Learning Dashboard</Text>
 
-      {/* Summary Cards */}
-
       <View style={styles.summaryRow}>
         <View style={styles.card}>
           <Text style={styles.cardNumber}>{totalCourses}</Text>
